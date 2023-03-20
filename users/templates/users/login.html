@@ -1,0 +1,27 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'users/login.css' %}">
+    <div class="login-section">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <h2>Log In</h2>
+                <label>Username</label>
+                <div class="form-input">{{ form.username }}</div>
+                <label>Password</label>
+                <div class="form-input">{{ form.password }}</div>
+            </div>
+            <div class="login-button">
+                <button type="submit">Login</button>
+            </div>
+            <p><a href="#">Forgot password?</a></p>
+        </form>
+        <div style="border-bottom: 1px solid black;"></div>
+        <p>
+            Don't have account? 
+            <a href="{% url 'register' %}">Sign Up Now</a>
+        </p>
+    </div>
+{% endblock content %}
