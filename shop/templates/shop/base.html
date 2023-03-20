@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'shop/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0" />
+    <title>Online store</title>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="topbar">
+        <a class="logo top50" href="{% url 'home' %}">onlinestore</a>
+        <div class="search-product top50">
+            <input type="text" placeholder="Search for product...">
+            <a class="search-button">Search</a>
+        </div>
+        <div class="hrefs top50">
+            {% if user.is_authenticated %}
+            <a class="login-buttons" href="{% url 'logout' %}">
+                Log out
+            </a>
+            {% else %}
+            <a class="login-buttons" href="{% url 'login' %}">
+                Log in
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            
+        </div>
+        <div class="products-list">
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            <div class="product-box">
+                <img class="left50" src="https://images-ext-2.discordapp.net/external/xXmuIWecz8pjUNeH-7ZMWmeVf6e_B4qYVLQ2racF4Lo/https/www.freepnglogos.com/uploads/cat-png/cat-boarding-24.png" alt="kotek">
+                <div class="product-details">
+                    <span>Kotek</span>
+                    <p>100.00€</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">grade</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="#"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+    <div class="footer">
+
+    </div>
+</body>
+</html>
