@@ -1,3 +1,5 @@
 /.venv
 .env
 /__pycache__
+# folder with pictures of products
+/media
