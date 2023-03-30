@@ -1,16 +1,3 @@
-body {
-    background-color: #000;
-}
-.background-image {
-    background-image: url('ekaterina.jpg');
-    /* ważne ustawienie */
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-}
 .login-section {
     width: 375px;
     margin: 30px auto;
@@ -59,7 +46,4 @@ body {
     color: white;
     background-color: #303030;
     cursor: pointer;
-}
-.container {
-    padding-bottom: 0;
 }

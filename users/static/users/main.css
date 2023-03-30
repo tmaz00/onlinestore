@@ -10,3 +10,13 @@ body {
     font-size: 20px;
     margin: auto;
 }
+.background-image {
+    background-image: url('ekaterina.jpg');
+    /* ważne ustawienie */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
