@@ -1,0 +1,27 @@
+body {
+    background-color: #353535;
+}
+.container {
+    height: 100vh;
+}
+.form-box {
+    position: relative;
+    top: 0;
+    width: 600px;
+    display: inline-block;
+}
+.order-summary {
+    width: 600px;
+    display: inline-block;
+}
+.order-summary-elem div {
+    width: 90px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+.order-summary-elem .elem-img {
+    width: 60px;
+    height: 60px;
+}
