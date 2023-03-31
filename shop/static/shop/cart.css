@@ -13,6 +13,10 @@ body {
     display: inline-block;
     width: 160px;
 }
+/* google class for icons */
+.material-symbols-outlined {
+    cursor: pointer;
+}
 .cart-row .item-img {
     display: inline-block;
     width: 100px;

@@ -20,7 +20,11 @@
                 <div><img class="item-img" src="{{ item.product.imageURL }}"></div>
                 <div>{{ item.product.name }}</div>
                 <div>{{ item.product.price }} PLN</div>
-                <div>{{ item.quantity }}</div>
+                <div>
+                    <i data-product="{{item.product.id}}" data-action="remove" class="material-symbols-outlined update-cart" translate="no">do_not_disturb_on</i>
+                    {{ item.quantity }}
+                    <i data-product="{{item.product.id}}" data-action="add" class="material-symbols-outlined update-cart" translate="no">add_circle</i>
+                </div>
                 <div>{{ item.total_price }} PLN</div>
             </div>
         {% endfor %}
