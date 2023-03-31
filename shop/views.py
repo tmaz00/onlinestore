@@ -19,6 +19,20 @@ def store(request):
     context = {'products': products, 'cart_items_counter': cart_items_counter}
     return render(request, 'shop/home.html', context)
 
+def filter_products(request):
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    
+    products = Product.objects.all()
+
+    if min_price:
+        products = products.filter(price__gte=min_price)
+    if max_price:
+        products = products.filter(price__lte=max_price)
+    
+    # Render the filtered products using a template
+    return render(request, 'shop/home.html', {'products': products})
+
 def cart(request):
     if request.user.is_authenticated:
         customer = request.user.customer
