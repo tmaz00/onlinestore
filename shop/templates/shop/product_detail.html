@@ -1,11 +1,27 @@
 {% extends 'shop/base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="container">
-        <p>{{ product.name }}</p>
-        <p>{{ product.size }}</p>
-        <img src={{ product.image.url }} alt="product img">
-        <p>{{ product.category }}</p>
-        <button data-product={{product.id}} data-action="add" class="update-cart">Add to cart</button>
+        <link rel="stylesheet" href="{% static 'shop/product.css' %}">
+        <div class="product-img">
+            <img src={{ product.image.url }} alt="product img">
+        </div>
+        <div class="product-info">
+            <div class="product-desc">
+                <h2>{{ product.name }}</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet bibendum ante, sed volutpat sem. Pellentesque tellus nunc, mollis et accumsan sit amet, rutrum vel nulla. Suspendisse dignissim iaculis lacus. Suspendisse lobortis justo sed tortor elementum, ut porta nisl egestas. Aliquam lobortis tellus at dolor blandit sagittis. Pellentesque sollicitudin ac elit ac mattis. Vivamus vel lacus ac enim pellentesque vulputate in quis ligula. Aliquam feugiat pretium odio a tincidunt. Suspendisse gravida dapibus nulla, ut congue neque fringilla at. Donec quis dui dignissim, scelerisque nisl quis, finibus neque. Morbi sagittis ante in est rhoncus convallis.</p>
+                <p id="product-detail"><b>Color:</b> {{ product.color }}</p>
+                <p id="product-detail"><b>Price per unit:</b> {{ product.price }} PLN</p>
+            </div>
+            <div data-product={{product.id}} data-action="add" class="cart-add-btn update-cart">
+                <span>Add to cart</span>
+                <span class="material-symbols-outlined">add_shopping_cart</span>
+            </div>
+            <div class="product-options">
+                {% comment %} <button data-product={{product.id}} data-action="add" class="cart-add-btn update-cart">Add to cart</button> {% endcomment %}
+                
+            </div>
+        </div>
     </div>
 {% endblock content %}
