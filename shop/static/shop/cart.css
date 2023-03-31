@@ -1,0 +1,24 @@
+body {
+    background-color: #353535;
+}
+.container {
+    height: 100vh;
+}
+.cart-row {
+    width: 1000px;
+    text-align: center;
+    height: 90px;
+}
+.cart-row div {
+    display: inline-block;
+    width: 160px;
+}
+/* google class for icons */
+.material-symbols-outlined {
+    cursor: pointer;
+}
+.cart-row .item-img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}

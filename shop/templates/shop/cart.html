@@ -1,0 +1,32 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'shop/cart.css' %}">
+    <div class="container">
+        <a href="{% url 'home' %}">&#8592;Continue shopping</a>
+        <a href="{% url 'checkout' %}">Checkout</a>
+        <h1>Items: {{ order.items_counter }}</h1>
+        <h1>Total: {{ order.total_price }} PLN</h1>
+        <div class="cart-row">
+            <div></div>
+            <div><strong>Item</strong></div>
+            <div><strong>Price</strong></div>
+            <div><strong>Quantity</strong></div>
+            <div><strong>Total</strong></div>
+        </div>
+        {% for item in items %}
+            <div class="cart-row">
+                <div><img class="item-img" src="{{ item.product.imageURL }}"></div>
+                <div>{{ item.product.name }}</div>
+                <div>{{ item.product.price }} PLN</div>
+                <div>
+                    <i data-product="{{item.product.id}}" data-action="remove" class="material-symbols-outlined update-cart" translate="no">do_not_disturb_on</i>
+                    {{ item.quantity }}
+                    <i data-product="{{item.product.id}}" data-action="add" class="material-symbols-outlined update-cart" translate="no">add_circle</i>
+                </div>
+                <div>{{ item.total_price }} PLN</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
