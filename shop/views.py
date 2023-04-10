@@ -3,6 +3,7 @@ from django.views.generic import DetailView, ListView
 from django.http import JsonResponse
 import json
 from .models import *
+from .forms import ProductFilterForm, ProductSearchForm
 
 
 def store(request):
@@ -16,22 +17,42 @@ def store(request):
         cart_items_counter = order['items_counter']
 
     products = Product.objects.all()
-    context = {'products': products, 'cart_items_counter': cart_items_counter}
+
+    search_form = ProductSearchForm(request.GET)
+    if search_form.is_valid():
+        search_phrase = search_form.cleaned_data['name']
+        products = Product.objects.filter(name__icontains=search_phrase)
+
+    form = ProductFilterForm(request.GET or None)
+    if form.is_valid():
+        price_from = form.cleaned_data.get('price_from')
+        price_to = form.cleaned_data.get('price_to')
+        category = form.cleaned_data.get('category')
+        color = form.cleaned_data.get('color')
+
+        if price_from:
+            products = products.filter(price__gte=price_from)
+        if price_to:
+            products = products.filter(price__lte=price_to)
+        if category:
+            products = products.filter(category=category)
+        if color:
+            products = products.filter(color=color)
+
+    context = {
+        'products': products,
+        'cart_items_counter': cart_items_counter,
+        'form': form,
+        'search_form': search_form,
+    }
     return render(request, 'shop/home.html', context)
 
-def filter_products(request):
-    min_price = request.GET.get('min_price')
-    max_price = request.GET.get('max_price')
-    
-    products = Product.objects.all()
-
-    if min_price:
-        products = products.filter(price__gte=min_price)
-    if max_price:
-        products = products.filter(price__lte=max_price)
-    
-    # Render the filtered products using a template
-    return render(request, 'shop/home.html', {'products': products})
+def search(request):
+    form = ProductSearchForm(request.GET)
+    if form.is_valid():
+        search_phrase = form.cleaned_data['name']
+        products = Product.objects.filter(name__icontains=search_phrase)
+        return render(request, 'shop/home.html', {'products': products})
 
 def cart(request):
     if request.user.is_authenticated:

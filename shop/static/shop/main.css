@@ -61,22 +61,46 @@ input, button, a {
     padding: 9px 20px;
     border-radius: 3px;
     background-color: #2eb82e;
+    border: 1px solid #2eb82e;
     font-weight: 600;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+    color: white;
+}
+.search-button:hover {
+    background-color: transparent;
+    transition: 0.3s ease-in;
 }
 .hrefs {
     position: absolute;
     right: 10px;
     top: 46.5%;
 }
+.logged-user {
+    font-size: 16px;
+    position: relative;
+    top: 2.5px;
+}
+.hrefs .material-symbols-outlined {
+    vertical-align: middle;
+    margin-right: 5px;
+}
 .login-button {
     text-align: center;
-    margin-bottom: 10px;
     border-radius: 3px;
     color: white;
     font-size: 16px;
-    background-color: blue;
-    padding: 10px 16px;
+    background-color: var(--cl-blue-btn);
+    border: 1px solid var(--cl-blue-btn);
+    padding: 10px 15px;
     font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    top: 2.5px;
+}
+.login-button:hover {
+    background-color: transparent;
+    transition: 0.3s ease-in;
 }
 .cart {
     margin-left: 15px;
@@ -102,16 +126,76 @@ input, button, a {
     width: 30px;
     height: 30px;
 }
+.container {
+    min-height: 70vh;
+}
+/* left sidebar to filter products */
 .container .sidebar {
-    width: 300px;
-    height: 400px;
+    width: 260px;
     background-color: #191919b5;
     border-radius: 3px;
     position: relative;
     display: inline-block;
     vertical-align: top;
     margin-left: 10px;
+    padding: 10px;
 }
+.container .sidebar h4 {
+    margin-bottom: 15px;
+    border-bottom: 1px white solid;
+}
+.sidebar p{
+    margin: 10px 0;
+    font-size: 18px;
+}
+.sidebar select {
+    background-color: #333;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.sidebar input {
+    background-color: #333;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    width: 80px;
+}
+.sidebar span {
+    font-size: 16px;
+    margin-left: 10px;
+}
+.filter-btns {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #202020;
+}
+.filter-btns #filter-btn {
+    padding: 5px 10px;
+    width: 100px;
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    background-color: var(--cl-blue-btn);
+    border: 1px solid var(--cl-blue-btn);
+    float: left;
+    cursor: pointer;
+}
+.filter-btns #reset-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+    width: 100px;
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    background-color: var(--cl-red-light);
+    border: 1px solid var(--cl-red-light);
+    float: right;
+    cursor: pointer;
+}
+/* ---------- */
 .container .products-list {
     width: 70%;
     position: relative;
@@ -160,12 +244,12 @@ input, button, a {
 .container .products-list .product-box img.img {
     display: block;
     width: 90%;
+    height: 280px;
     position: relative;
     margin: 10px 0;
     background-color: #202020;
     padding: 10px;
     border-radius: 3px;
-    object-fit: cover;
     object-position: center;
 }
 .container .products-list .product-box span {
@@ -243,4 +327,7 @@ input, button, a {
     position: relative;
     margin-top: 10px;
     display: block;
+}
+.footer {
+    position: relative !important;
 }

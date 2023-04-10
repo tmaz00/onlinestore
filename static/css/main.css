@@ -3,6 +3,21 @@
     margin: 0;
     padding: 0;
 }
+/* Definicja kolorów do użycia na całej stronie
+    Użycie-przykład: background-color: var(--cl-blue) */
+:root{
+    --cl-yellow: #ffe96a;
+    --cl-light-green: #36fb9a;
+    --cl-green: #1ae47f;
+    --cl-green-btn: #0cb763;
+    --cl-red: #f74141;
+    --cl-red-light: #fd6a6a;
+    --cl-blue: #4c9cf8;
+    --cl-blue-btn: #3b8be7;
+    --cl-purple: #a928f3;
+    --cl-border: #90909017;
+    --box-shadow-black: rgba(26, 26, 26, 0.233) 0px 7px 29px 0px;
+}
 .topbar {
     padding: 10px 0;
     background-color: #111111;
@@ -39,7 +54,7 @@
     width: 100%;
     position: relative;
     background-color: #11111181;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 .footer {
     position: absolute;

@@ -40,12 +40,18 @@
 <body>
     <div class="topbar">
         <a class="logo top50" href="{% url 'home' %}">onlinestore</a>
-        <div class="search-product top50">
-            <input type="text" placeholder="Search for product...">
-            <a class="search-button">Search</a>
-        </div>
+        {% if search_form %}
+            <div class="search-product top50">
+                <form method="get">
+                {{ search_form.name }}
+                <button class="search-button" type="submit">Search</button>
+                </form>
+            </div>
+        {% endif %}
         <div class="hrefs top50">
             {% if user.is_authenticated %}
+            <span class="logged-user">Logged as <strong>{{ user.username }}</strong></span>
+            <span class="material-symbols-outlined">account_circle</span>
             <a class="login-button" href="{% url 'logout' %}">
                 Log out
             </a>

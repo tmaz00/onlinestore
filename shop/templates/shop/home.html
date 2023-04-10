@@ -4,15 +4,24 @@
     <div class="background-image"></div>
     <div class="container">
         <div class="sidebar">
-            <form method="GET" action="{% url 'filter' %}">
-                <label for="min_price">Min price:</label>
-                <input type="number" name="min_price">
-                <br>
-                <label for="max_price">Max price:</label>
-                <input type="number" name="max_price">
-                <br>
-                <button type="submit">Filter products</button>
+            <form method="get" id="filter-form">
+                <div class="filter-options">
+                    <h4>Filter products</h4>
+                    <p>Category: {{ form.category }}</p>
+                    <p>Colors: {{ form.color }}</p>
+                    <p>Price:</p>
+                    <span>{{ form.price_from }} - {{ form.price_to }} PLN</span>
+                </div>
+                <div class="filter-btns">
+                    <button type="submit" id="filter-btn">Filter</button>
+                    <button type="reset" id="reset-btn" onclick="resetForm()">Reset filter</button>
+                </div>
             </form>
+            <script>
+                function resetForm() {
+                    window.location.href = window.location.pathname;
+                }
+            </script>
         </div>
         <div class="products-list">
             {% for product in products %}
@@ -20,7 +29,9 @@
                 <div class="img-background" style="background-image:url('{{ product.imageURL }}') ;">
                     <div></div>
                 </div>
-                <img class="left50 img" src="{{ product.imageURL }}" alt="cannot display image">
+                <div class="product-img">
+                    <img class="left50 img" src="{{ product.imageURL }}" alt="cannot display image">
+                </div>
                 <div class="product-details">
                     <span>{{ product.name }}</span>
                     <p>{{ product.price }} PLN</p>
