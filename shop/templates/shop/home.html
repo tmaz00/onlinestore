@@ -1,0 +1,53 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="sidebar">
+            <form method="get" id="filter-form">
+                <div class="filter-options">
+                    <h4>Filter products</h4>
+                    <p>Category: {{ form.category }}</p>
+                    <p>Colors: {{ form.color }}</p>
+                    <p>Price:</p>
+                    <span>{{ form.price_from }} - {{ form.price_to }} PLN</span>
+                </div>
+                <div class="filter-btns">
+                    <button type="submit" id="filter-btn">Filter</button>
+                    <button type="reset" id="reset-btn" onclick="resetForm()">Reset filter</button>
+                </div>
+            </form>
+            <script>
+                function resetForm() {
+                    window.location.href = window.location.pathname;
+                }
+            </script>
+        </div>
+        <div class="products-list">
+            {% for product in products %}
+            <div class="product-box">
+                <div class="img-background" style="background-image:url('{{ product.imageURL }}') ;">
+                    <div></div>
+                </div>
+                <div class="product-img">
+                    <img class="left50 img" src="{{ product.imageURL }}" alt="cannot display image">
+                </div>
+                <div class="product-details">
+                    <span>{{ product.name }}</span>
+                    <p>{{ product.price }} PLN</p>
+                    <div class="rating">
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                        <div><i class="material-symbols-outlined" translate="no">star</i></div>
+                    </div>
+                    <a href="{% url 'product-detail' product.id %}"><button><i class="material-symbols-outlined" translate="no">arrow_right_alt</i></button></a>
+                </div>
+            </div>
+            {% empty %}
+                <p>No products found.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

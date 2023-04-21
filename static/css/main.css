@@ -1,0 +1,66 @@
+*{
+    /* Konieczne ustawienia paddingu i marginu dla strony żeby ładnie wyglądało */
+    margin: 0;
+    padding: 0;
+}
+/* Definicja kolorów do użycia na całej stronie
+    Użycie-przykład: background-color: var(--cl-blue) */
+:root{
+    --cl-yellow: #ffe96a;
+    --cl-light-green: #36fb9a;
+    --cl-green: #1ae47f;
+    --cl-green-btn: #0cb763;
+    --cl-red: #f74141;
+    --cl-red-light: #fd6a6a;
+    --cl-blue: #4c9cf8;
+    --cl-blue-btn: #3b8be7;
+    --cl-purple: #a928f3;
+    --cl-border: #90909017;
+    --box-shadow-black: rgba(26, 26, 26, 0.233) 0px 7px 29px 0px;
+}
+.topbar {
+    padding: 10px 0;
+    background-color: #111111;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 2000;
+}
+/* ----- scrollbar ----- */
+::-webkit-scrollbar {
+    width:8px;
+    height: 2px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(92, 92, 92, 0.356);
+    border-radius: 1px; 
+    transition: 0.3s;
+}
+/* ---------- */
+.logo {
+    margin-left: 20px;
+    font-size: 36px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+.container {
+    padding-top: 100px;
+    width: 100%;
+    position: relative;
+    background-color: #11111181;
+    padding-bottom: 50px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #303030;
+    background-color: #161616;
+    height: 100px;
+}

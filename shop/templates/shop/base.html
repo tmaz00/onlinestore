@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'shop/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0" />
+    <title>Online store</title>
+
+    <script type="text/javascript">
+        var user = '{{ request.user }}'
+
+        // from django documentation - function creating csrf token
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getToken('csrftoken');
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <a class="logo top50" href="{% url 'home' %}">onlinestore</a>
+        {% if search_form %}
+            <div class="search-product top50">
+                <form method="get">
+                {{ search_form.name }}
+                <button class="search-button" type="submit">Search</button>
+                </form>
+            </div>
+        {% endif %}
+        <div class="hrefs top50">
+            {% if user.is_authenticated %}
+            <span class="logged-user">Logged as <strong>{{ user.username }}</strong></span>
+            <span class="material-symbols-outlined">account_circle</span>
+            <a class="login-button" href="{% url 'logout' %}">
+                Log out
+            </a>
+            {% else %}
+            <a class="login-button" href="{% url 'login' %}">
+                Log in
+            </a>
+            {% endif %}
+            <a class="cart" href="{% url 'cart' %}">
+                <span id="cart-items-counter">{{ cart_items_counter }}</span>
+                <img id="cart-icon" src="{% static 'images/shop-cart.png'%}">
+            </a>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="footer">
+
+    </div>
+
+    <script type="text/javascript" src="{% static 'shop/js/cart.js' %}"></script>
+</body>
+</html>

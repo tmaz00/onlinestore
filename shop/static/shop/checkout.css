@@ -1,0 +1,220 @@
+body {
+    background-color: #000;
+}
+.container {
+    text-align: center;
+}
+.form-box {
+    width: 45%;
+    text-align: left;
+    padding: 10px 10px 20px 10px;
+    background-color: #191919;
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.form-box h3 {
+    text-align: left;
+    font-size: 20px;
+    margin: 10px 0 0 20px;
+}
+.form-box hr {
+    margin: 2.5px 0 5px 20px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    width: 30%;
+    text-align: left;
+    height: 2px;
+    background-color: #252525a0;
+}
+.form-box .form-group {
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+    margin: 5px;
+    position: relative;
+}
+.form-box .form-group.max-width {
+    width: 92.5%;
+}
+.form-box .form-group label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 2.5px;
+}
+.form-box .form-group div {
+    width: 100%;
+    height: 41px;
+    background-color: #202020bd;
+    border-radius: 3px;
+    position: relative;
+}
+.form-box .form-group div input {
+    padding-left: 10px;
+    height: inherit;
+    width: 80%;
+    background-color: transparent;
+    color:white;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+.form-box .form-group div input::placeholder {
+    color: #ababab;
+}
+.form-box .form-group div i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+    color: white;
+}
+.form-box #form-btn {
+    width: 92%;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 0;
+    background-color: var(--cl-green);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.order-message {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    margin: 0 25px;
+}
+.payment-option {
+    text-align: left;
+    margin-top: 10px;
+}
+.payment-option p {
+    display: inline-block;
+    margin-left: 20px;
+}
+.payment-option button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.order-summary {
+    width: 45%;
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    background-color: #191919;
+    margin-left: 15px;
+    padding: 10px 0 20px 0;
+}
+.order-summary .go-back {
+    background-color: var(--cl-blue);
+    border-radius: 3px;
+    border: 1px solid var(--cl-blue);
+    text-decoration: none;
+    color: white;
+    height: 30px;
+    display: inline-block;
+    padding: 3px 12px;
+    transition: 0.3s ease-in;
+    margin: 5px 0px 5px 0px;
+    transform: translate(-50%, 0);
+    position: relative;
+    left: 13.5%;
+}
+.order-summary .go-back:hover {
+    background-color: transparent;
+    transition: 0.3s ease-in;
+}
+.order-summary .order-element {
+    width: 95%;
+    position: relative;
+    margin: 2.5px 0;
+    display: block;
+    background-color: #202020;
+    border-radius: 3px;
+    padding: 5px 0;
+}
+.order-summary .order-element .product-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+.order-summary .order-element .product-info span.total-price {
+    font-size: 17px;
+    font-weight: 600;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: white;
+}
+.order-summary .order-element img {
+    width: 40px;
+    height: 40px;
+    padding: 7.5px;
+    background-color: #252525;
+    border-radius: 3px;
+    object-fit: cover;
+    object-position: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+.order-summary .order-element div {
+    color: white;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 2.5px;
+}
+.order-summary .order-element div.product-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+.order-summary .order-element div strong {
+    color: #dedede;
+    font-size: 14px;
+    font-weight: 500;
+}
+.order-summary hr {
+    margin: 2.5px 0 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    width: 30%;
+    text-align: left;
+    height: 2px;
+    background-color: #252525a0;
+}
+.order-summary hr.bottom-line {
+    margin: 15px 0 5px 10px;
+}
+.order-summary h3 {
+    display: block;
+    margin: 5px 0px 2.5px 10px;
+}
+.order-summary h3.items {
+    float: left;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.order-summary h3.total {
+    float: right;
+    margin-right: 25px;
+    font-size: 18px;
+}
+.hidden {
+    display: none;
+}

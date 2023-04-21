@@ -1,0 +1,43 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'shop/cart.css' %}">
+    <div class="container">
+        <div class="cart-items left50">
+            <h2>Your cart</h2>
+            {% for item in items %}
+                <div class="cart-row left50">
+                    <img src="{{ item.product.imageURL }}">
+                    <div class="product-info product-leftinfo">
+                        <div class="product-name">{{ item.product.name }}</div>
+                        <div class="product-price">{{ item.product.price }} PLN</div>
+                    </div>
+                    <div class="product-info product-rightinfo">
+                        <div class="product-quantity">
+                            <button class="remove">
+                                <i data-product="{{item.product.id}}" data-action="remove" class="material-symbols-outlined update-cart" translate="no">remove</i>
+                            </button>
+                            {{ item.quantity }}
+                            <button class="add">
+                                <i data-product="{{item.product.id}}" data-action="add" class="material-symbols-outlined update-cart" translate="no">add</i>
+                            </button>
+                        </div>
+                        <div class="total-price">{{ item.total_price }} PLN</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="cart-summary left50">
+            <a class="go-back" href="{% url 'home' %}">
+                <i class="material-symbols-outlined" translate="no">home</i>
+                <span>Go back</span>
+            </a>
+            {% if cart_items_counter > 0 %}
+                <a class="next" href="{% url 'checkout' %}">Checkout</a>
+            {% endif %}
+            <h1 class="price">Total price: {{ order.total_price }} PLN</h1>
+            <h1 class="items">Items: {{ order.items_counter }}</h1>
+        </div>
+    </div>
+{% endblock content %}
