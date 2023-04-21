@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.generic import DetailView, ListView
 from django.http import JsonResponse
 import json
+import datetime
 from .models import *
 from .forms import ProductFilterForm, ProductSearchForm
 
@@ -111,6 +112,35 @@ def update_item(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+def process_order(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete = False)
+        total_price = float(data['form']['total'])
+        order.transaction_id = str(transaction_id)
+
+        # make sure if total price on website (front-end) is exactly the same as in the back-end
+        # (in case of user trying to manipulate data using js)
+        if total_price == float(order.total_price):
+            order.complete = True
+        order.save()
+
+        ShippingAddress.objects.create(
+            customer = customer,
+            order = order,
+            address = data['shipping']['address'],
+            city =  data['shipping']['city'],
+            postal_code = data['shipping']['postal_code']
+        )
+    else:
+        print('User is not logged in!')
+
+    print('Data:', request.body)
+    return JsonResponse('Payment complete!', safe=False )
 
 def product_detail(request, id):
     if request.user.is_authenticated:
