@@ -8,14 +8,30 @@
             {% csrf_token %}
             <div class="form-group">
                 <h2>Register</h2>
-                <label>Username</label>
-                <div class="form-input">{{ form.username }}</div>
-                <label>Email</label>
-                <div class="form-input">{{ form.email }}</div>
-                <label>Password</label>
-                <div class="form-input">{{ form.password1 }}</div>
-                <label>Password Confirmation</label>
-                <div class="form-input">{{ form.password2 }}</div>
+                <div class="form-input half-len">
+                    <label>First Name</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-input half-len">
+                    <label>Last Name</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="form-input">
+                    <label>Username</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-input">
+                    <label>Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-input">
+                    <label>Password</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="form-input">
+                    <label>Password Confirmation</label>
+                    {{ form.password2 }}
+                </div>
             </div>
             <div class="login-button">
                 <button type="submit">Sign up</button>
